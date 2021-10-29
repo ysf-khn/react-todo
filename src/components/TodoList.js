@@ -5,9 +5,13 @@ import { useState } from "react";
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
 
+  const addTodo = (todo) => {
+    setTodos([...todo, ...todos]);
+  };
+
   return (
     <>
-      <TodoForm todos={todos} />
+      <TodoForm onSubmit={addTodo} />
       <p>{todos}</p>
     </>
   );
